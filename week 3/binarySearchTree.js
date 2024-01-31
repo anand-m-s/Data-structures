@@ -59,6 +59,13 @@ class BinarySearchTree{
             this.preOrder(root.right)
         }
     }
+    inOrder(root){
+        if(root){
+            this.inOrder(root.left)
+            console.log(root.value)
+            this.inOrder(root.right)
+        }
+    }
 }
 
 const bst = new BinarySearchTree()
@@ -71,5 +78,5 @@ console.log(bst.search(bst.root,10))
 console.log(bst.search(bst.root,5))
 console.log(bst.search(bst.root,15))
 console.log(bst.search(bst.root,20))
-bst.preOrder(bst.root)
+bst.inOrder(bst.root)
 // console.log('bst is empty', bst.isEmpty());
