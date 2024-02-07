@@ -26,7 +26,7 @@ class Trie{
         let curr = this.root
         for(let i=0;i<word.length;i++){
             let char = word[i]
-            if(!char.children.hasOwnProperty(char)){
+            if(!curr.children.hasOwnProperty(char)){
                 return false
             }
             curr = curr.children[char]
@@ -45,4 +45,26 @@ class Trie{
         }
         return true
     }
+    displayTrie() {
+        return this.display(this.root, "")
+    }
+
+    display(node, curr) {
+        if (node.isWordEnd) {
+            console.log(curr);
+        }
+        for (const char in node.children) {
+            if (node.children.hasOwnProperty(char)) {
+                this.display(node.children[char], curr + char)
+            }
+
+        }
+    }
 }
+
+const trie = new Trie()
+trie.insert("apple")
+trie.insert("app")
+console.log(trie.contains("apple"));
+console.log(trie.contains('applesdf'));
+trie.displayTrie()
