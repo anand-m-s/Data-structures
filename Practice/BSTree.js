@@ -74,9 +74,9 @@ class BinarySearchTree{
         if(root ===null){
             return root
         }
-        if(root.value>value){
+        if(value<root.value){
             root.left = this.deleteNode(root.left,value)
-        }else if(root.value<value){
+        }else if(value>root.value){
             root.right = this.deleteNode(root.right,value)
         }else{
             if(!root.right&& !root.left){
